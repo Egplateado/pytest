@@ -5,3 +5,14 @@ def suma(x , y):
         regresa el valor de ambos  
     '''
     return x + y
+
+def escribir(fpath , data_in):
+    ''' 
+    funcion que escribe en un archivo 
+    Args:
+    
+    fpath: path absoluto del archivo
+    data_in: información a escribir
+    '''
+    with open(fpath , "w") as file_in:
+        file_in.write(data_in)

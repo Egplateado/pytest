@@ -1,5 +1,5 @@
 import pytest
-from main import suma
+from main import suma , escribir
 
 def test_suma():
     assert suma(4 , 4) == 8
@@ -10,9 +10,22 @@ def test_suma():
         (3 , 2 , 5),
         (2 , 3 , 5),
         (suma(3 , 2) , 5 , 10),
-        (3 , suma(2 , 5) , 1)
+        (3 , suma(2 , 5) , 10)
     ]
 )     
 
 def test_suma_multi(input_a , input_b , expected):
     assert suma(input_a , input_b) == expected
+'''
+Crear direcciones temporales
+con tmpdir
+'''
+def test_tmp_dir(tmpdir):
+    data_in = "Coding Omar"
+    fpath = f"{tmpdir}/test.txt"
+    escribir(fpath , data_in)
+    
+    with open(fpath) as file_out:
+        data_out = file_out.read()
+    
+    assert data_in == data_out
